@@ -3,8 +3,8 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 @Component({
   selector: 'custom-button',
   template: `
-  <img [src]="this.imageSource">
-    <button (click)="handleClick()">{{label}}</button>
+    <img [src]="this.imageSource">
+    <button mat-button (click)="handleClick()">{{label}}</button>
   `,
   styles: [`
     button {

@@ -1,7 +1,6 @@
 const gulp = require("gulp");
 const concat = require("gulp-concat");
 const gzip = require("gulp-gzip");
-const append = require("gulp-append");
 
 gulp.task("package", () => {
   gulp
