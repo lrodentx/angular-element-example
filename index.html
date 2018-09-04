@@ -5,19 +5,30 @@
   <meta charset="UTF-8">
   <title>Custom Button Test Page</title>
   <script src="elements.js"></script>
+  <script src="elements.js"></script>
 </head>
 
 <body>
   <!-- <custom-button id="first" label="First Value"></custom-button> -->
 
   <script>
-    const button =document.body.appendChild(createWidget(''));
+    const button = document.body.appendChild(createWidget(''));
     button.id = 'first';
     button.label = 'First Value';
     button.addEventListener('event', (event) => {
       console.log(`"event" emitted: ${event.detail}`);
     })
     setTimeout(() => button.label = 'Second Value', 3000);
+  </script>
+
+  <script>
+    const button2 = document.body.appendChild(createWidget(''));
+    button2.id = 'first';
+    button2.label = 'First Value';
+    button2.addEventListener('event', (event) => {
+      console.log(`"event" emitted: ${event.detail}`);
+    })
+    setTimeout(() => button2.label = 'Second Value', 3000);
   </script>
 </body>
 
