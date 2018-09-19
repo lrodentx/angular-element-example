@@ -3,8 +3,14 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 @Component({
   selector: 'custom-button',
   template: `
+    <div class="myCusomWidget">
     <img [src]="this.imageSource">
+
+    <input matInput placeholder="Lieblingsessen" (change)="handleChange()" [value]="wert">
+
     <button mat-button (click)="handleClick()">{{label}}</button>
+
+    </div>
   `,
   styles: [`
     button {
@@ -13,20 +19,31 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
       background-color: var(--okvp-button-default-background-color);
       font-size: 20px;
     }
+
+    img {
+      width: 20px;
+      height: 30px;
+    }
   `],
   encapsulation: ViewEncapsulation.Native
 })
 export class ButtonComponent {
-  @Input() label: string = 'default label';
-  @Output() event: EventEmitter<number> = new EventEmitter<number>();
-  private clicksCounter: number = 0;
+  @Input() wert;
+  @Input() label = 'default label';
+  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() fireEvent: EventEmitter<string> = new EventEmitter<string>();
+  private clicksCounter = 0;
 
   handleClick() {
     this.clicksCounter++;
-    this.event.emit(this.clicksCounter);
+    this.fireEvent.emit('myCustomEvent');
+  }
+
+  handleChange() {
+    this.valueChange.emit(this.wert);
   }
 
   get imageSource(): string {
-    return `${(<any>window).BASE_URL}assets/me.jpg`;
+    return `runtimeProxy/myCustomWidget/img/mann.png`;
   }
 }
