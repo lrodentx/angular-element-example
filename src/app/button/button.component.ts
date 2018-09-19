@@ -47,3 +47,4 @@ export class ButtonComponent {
     return `runtimeProxy/myCustomWidget/img/mann.png`;
   }
 }
+
