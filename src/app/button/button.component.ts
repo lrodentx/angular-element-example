@@ -6,15 +6,9 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
     <div class="myCusomWidget">
     <img [src]="this.imageSource">
 
-    <input matInput placeholder="Lieblingsessen"
-                    (change)="handleChange()"
-                    [value]="wert"
-                    [ngModel]="wert"
-                    (ngModelChange)="wert = $event">
+    <input matInput placeholder="Lieblingsessen" (change)="handleChange()" [(value)]="wert">
 
-    <p>Hello {{ wert }}</p>
-
-    <button mat-button (click)="handleClick()">{{label}}</button>
+    <button mat-button (click)="handleClick()">{{labelText}}</button>
     <button mat-button (click)="handleAlert()">alert</button>
 
     </div>
@@ -35,18 +29,20 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
   encapsulation: ViewEncapsulation.Native
 })
 export class ButtonComponent {
-  @Input() wert: string;
-  @Input() label = 'default label';
+  @Input() wert;
+  @Input() labelText = 'default label';
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() fireEvent: EventEmitter<string> = new EventEmitter<string>();
   private clicksCounter = 0;
 
   handleClick() {
     this.clicksCounter++;
+    window.alert(this.wert);
     this.fireEvent.emit('myCustomEvent');
   }
 
   handleChange() {
+    window.alert(this.wert);
     this.valueChange.emit(this.wert);
   }
 
@@ -58,3 +54,4 @@ export class ButtonComponent {
     return `runtimeProxy/myCustomWidget/img/mann.png`;
   }
 }
+

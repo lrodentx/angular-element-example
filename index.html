@@ -8,10 +8,10 @@
 </head>
 
 <body>
-  <custom-button id="first" label="First Value" wert="klaus"></custom-button>
+  <custom-button id="first" label="First Value" wert="foo"></custom-button>
 
   <script>
-    const button = document.querySelector('#first');
+    const button = document.getElementById('first');
     button.addEventListener('event', (event) => {
       console.log(`"event" emitted: ${event.detail}`);
     })
