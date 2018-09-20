@@ -6,9 +6,9 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
     <div class="myCusomWidget">
     <img [src]="this.imageSource">
 
-    <input matInput placeholder="Lieblingsessen" (change)="handleChange()" [value]="wert">
+    <input matInput placeholder="Lieblingsessen" (change)="handleChange()" [(value)]="wert">
 
-    <button mat-button (click)="handleClick()">{{label}}</button>
+    <button mat-button (click)="handleClick()">{{labelText}}</button>
 
     </div>
   `,
@@ -29,17 +29,19 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 })
 export class ButtonComponent {
   @Input() wert;
-  @Input() label = 'default label';
+  @Input() labelText = 'default label';
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() fireEvent: EventEmitter<string> = new EventEmitter<string>();
   private clicksCounter = 0;
 
   handleClick() {
     this.clicksCounter++;
+    window.alert(this.wert);
     this.fireEvent.emit('myCustomEvent');
   }
 
   handleChange() {
+    window.alert(this.wert);
     this.valueChange.emit(this.wert);
   }
 
