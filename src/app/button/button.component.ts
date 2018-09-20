@@ -6,9 +6,16 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
     <div class="myCusomWidget">
     <img [src]="this.imageSource">
 
-    <input matInput placeholder="Lieblingsessen" (change)="handleChange()" [value]="wert">
+    <input matInput placeholder="Lieblingsessen"
+                    (change)="handleChange()"
+                    [value]="wert"
+                    [ngModel]="wert"
+                    (ngModelChange)="wert = $event">
+
+    <p>Hello {{ wert }}</p>
 
     <button mat-button (click)="handleClick()">{{label}}</button>
+    <button mat-button (click)="handleAlert()">alert</button>
 
     </div>
   `,
@@ -28,7 +35,7 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
   encapsulation: ViewEncapsulation.Native
 })
 export class ButtonComponent {
-  @Input() wert;
+  @Input() wert: string;
   @Input() label = 'default label';
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() fireEvent: EventEmitter<string> = new EventEmitter<string>();
@@ -41,6 +48,10 @@ export class ButtonComponent {
 
   handleChange() {
     this.valueChange.emit(this.wert);
+  }
+
+  handleAlert() {
+    alert(this.wert);
   }
 
   get imageSource(): string {
