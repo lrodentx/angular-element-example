@@ -12,10 +12,11 @@
 
   <script>
     const button = document.getElementById('first');
-    button.addEventListener('event', (event) => {
-      console.log(`"event" emitted: ${event.detail}`);
+    setTimeout(() => button.labelText = 'Second Value', 3000);
+    button.addEventListener('clickEvent', (element) => {
+      debugger;
+      console.info(element);
     })
-    setTimeout(() => button.label = 'Second Value', 3000);
   </script>
 
 </body>

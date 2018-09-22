@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'custom-button',
@@ -33,12 +33,17 @@ export class ButtonComponent {
   @Input() labelText = 'default label';
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() fireEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() clickEvent = new EventEmitter();
   private clicksCounter = 0;
 
   handleClick() {
     this.clicksCounter++;
     window.alert(this.wert);
-    this.fireEvent.emit('myCustomEvent');
+    this.clickEvent.emit({
+      id: 123,
+      isTest: true,
+      name: "Test"
+    });
   }
 
   handleChange() {
