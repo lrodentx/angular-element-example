@@ -13,9 +13,10 @@
   <script>
     const button = document.getElementById('first');
     setTimeout(() => button.labelText = 'Second Value', 3000);
-    button.addEventListener('clickEvent', (element) => {
+    button.addEventListener('clickEvent', (event) => {
       debugger;
-      console.info(element);
+      event.detail.logClickEvent()
+      console.info("ClicksCounter from Angular Component: " + event.detail.clicksCounter);
     })
   </script>
 

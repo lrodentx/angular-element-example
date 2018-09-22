@@ -38,12 +38,11 @@ export class ButtonComponent {
 
   handleClick() {
     this.clicksCounter++;
-    window.alert(this.wert);
-    this.clickEvent.emit({
-      id: 123,
-      isTest: true,
-      name: "Test"
-    });
+    this.clickEvent.emit(this);
+  }
+
+  logClickEvent(): void {
+    console.log('clickEvent was emitted');
   }
 
   handleChange() {
