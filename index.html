@@ -8,14 +8,23 @@
 </head>
 
 <body>
-  <custom-button id="first" label="First Value" wert="foo"></custom-button>
+  <!--  <custom-button id="first" label="First Value" wert="foo"></custom-button> -->
 
   <script>
-    const button = document.getElementById('first');
-    button.addEventListener('event', (event) => {
+    const button = document.createElement('custom-button'); //document.getElementById('first');    
+    button.addEventListener('registrationEvent', (event) => {
       console.log(`"event" emitted: ${event.detail}`);
     })
     setTimeout(() => button.label = 'Second Value', 3000);
+
+    button.widgetModel = {
+      name: "Peter",
+      isDeveloper: true,
+      hasChildren: true,
+    }
+
+    button.eventFn = () => alert('Hello World');
+    document.body.appendChild(button);
   </script>
 
 </body>

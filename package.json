@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --output-hashing=none",
+    "dev": "ng build --output-hashing=none",
     "package": "gulp package",
     "serve": "http-server --gzip",
     "test": "ng test",
