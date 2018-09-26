@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <!-- <custom-button id="first" label="First Value" wert="foo"></custom-button> -->
 
   <script>
@@ -22,6 +23,24 @@
       event.detail.logClickEvent()
       console.info("ClicksCounter from Angular Component: " + event.detail.clicksCounter);
     });
+=======
+  <!--  <custom-button id="first" label="First Value" wert="foo"></custom-button> -->
+
+  <script>
+    const button = document.createElement('custom-button'); //document.getElementById('first');    
+    button.addEventListener('registrationEvent', (event) => {
+      console.log(`"event" emitted: ${event.detail}`);
+    })
+    setTimeout(() => button.label = 'Second Value', 3000);
+
+    button.widgetModel = {
+      name: "Peter",
+      isDeveloper: true,
+      hasChildren: true,
+    }
+
+    button.eventFn = () => alert('Hello World');
+>>>>>>> 8a0b1e9cc26d5b16bc580b6e2009faefe84587b6
     document.body.appendChild(button);
   </script>
 
