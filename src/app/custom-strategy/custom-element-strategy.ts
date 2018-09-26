@@ -7,7 +7,10 @@ export class CustomElementStrategy extends ComponentNgElementStrategy implements
   
   connect(element: HTMLElement): void {
     super.connect(element);
-    this.componentRef.instance.clickEvent.emit(this.componentRef.instance);
+    debugger;
+    setTimeout(() => {
+      this.componentRef.instance.createAttributeEvents()
+    }, 5000);
     debugger;
   }
   disconnect(): void {

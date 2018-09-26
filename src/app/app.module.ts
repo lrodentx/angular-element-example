@@ -22,7 +22,6 @@ import { CustomNgElementStrategyFactory } from './custom-strategy/custom-element
 })
 export class AppModule {
   constructor(private injector: Injector) {
-    debugger;
     if (customElements.get("custom-button")) {
       return;
     }
