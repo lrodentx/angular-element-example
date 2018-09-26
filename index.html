@@ -8,16 +8,21 @@
 </head>
 
 <body>
-  <custom-button id="first" label="First Value" wert="foo"></custom-button>
+  <!-- <custom-button id="first" label="First Value" wert="foo"></custom-button> -->
 
   <script>
-    const button = document.getElementById('first');
-    setTimeout(() => button.labelText = 'Second Value', 3000);
+    debugger;
+    const button = document.createElement('custom-button'); //document.getElementById('first');
+    button.id = 'first';
+    button.label = 'First Value';
+    button.wert = 'foo';
+    setTimeout(() => button.labelText = 'Second Value', 5000);
     button.addEventListener('clickEvent', (event) => {
       debugger;
       event.detail.logClickEvent()
       console.info("ClicksCounter from Angular Component: " + event.detail.clicksCounter);
-    })
+    });
+    document.body.appendChild(button);
   </script>
 
 </body>
