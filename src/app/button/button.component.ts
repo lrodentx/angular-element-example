@@ -50,14 +50,19 @@ export class ButtonComponent
 
   @Input()
   widgetModel: any = {};
+
   @Input()
   wert1: String;
+
   @Input()
   wert2: String;
+
   @Input()
   buttonText1: String;
+
   @Input()
   buttonText2: String;
+
   @Input()
   eventFn: Function;
 
@@ -66,6 +71,7 @@ export class ButtonComponent
 
   @Output()
   valueChange: EventEmitter<any> = new EventEmitter<any>();
+
   @Output()
   fireEvent: EventEmitter<any> = new EventEmitter<any>();
 
@@ -76,7 +82,7 @@ export class ButtonComponent
 
   ngAfterViewChecked() {
     console.log("ngAfterViewChecked");
-    this.createAttributeEvents();
+    // this.createAttributeEvents();
   }
 
   ngOnInit() {

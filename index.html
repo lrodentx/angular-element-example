@@ -13,7 +13,7 @@
   <script>
     const button = document.createElement('custom-button'); //document.getElementById('first');    
     button.addEventListener('registerAttributeEvent', (event) => {
-      console.log(`"event" emitted: ${event.detail}`);
+      console.log(`"event" emitted:`, event.detail);
     })
     setTimeout(() => button.label = 'Second Value', 5000);
 

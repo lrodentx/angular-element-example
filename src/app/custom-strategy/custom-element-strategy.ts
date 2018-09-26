@@ -1,17 +1,16 @@
-import { NgElementStrategy, NgElementStrategyEvent } from "@angular/elements";
+import { NgElementStrategy, NgElementStrategyEvent, NgElement } from "@angular/elements";
 import { Observable } from "rxjs";
 import { ComponentNgElementStrategy } from "./lib/component-ng-element-strategy";
 
 export class CustomElementStrategy extends ComponentNgElementStrategy implements NgElementStrategy {
   events: Observable<NgElementStrategyEvent>;
   
-  connect(element: HTMLElement): void {
+  connect(element: NgElement): void {
     super.connect(element);
     debugger;
     setTimeout(() => {
       this.componentRef.instance.createAttributeEvents()
-    }, 5000);
-    debugger;
+    }, 1);
   }
   disconnect(): void {
     super.disconnect();

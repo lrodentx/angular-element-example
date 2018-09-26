@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { createCustomElement, NgElementConstructor } from '@angular/elements';
+import { createCustomElement, NgElementConstructor, NgElement } from '@angular/elements';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 
@@ -26,7 +26,7 @@ export class AppModule {
       return;
     }
 
-    const customButton: NgElementConstructor<HTMLElement> = createCustomElement(
+    const customButton: NgElementConstructor<NgElement> = createCustomElement(
       ButtonComponent,
       {
         injector: this.injector,
